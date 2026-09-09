@@ -1,515 +1,150 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MATH FC - Regras do Jogo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo da Marquês (1).png" alt="Logo MATH FC" class="logo">
+        <img src="MATCH FC.png" alt="Escudo MATH FC" class="logo-mathfc">
+        <h1>MATH FC</h1>
+        <p>A mistura perfeita entre matemática e futebol!</p>
+        <nav>
+            <a href="../iniciio/index.html">INÍCIO</a>
+            <a href="index.html" class="active">REGRAS DO JOGO</a>
+            <a href="#">SOBRE NÓS</a>
+            <a href="#">JOGAR</a>
+        </nav>
+    </header>
 
-:root {
-    --bg1: #0b0b2e;
-    --bg2: #1b1140;
-    --bg3: #2c0f52;
-    --cyan: #00f5d4;
-    --magenta: #ff2e9a;
-    --gold: #ffd166;
-    --ink-light: #eaf6ff;
-    --glass: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.14);
-}
+    <main class="cards-container">
+        <section class="card card-1">
+            <h3>⚽ 1. O Desafio</h3>
+            <p>Entre em campo! Acerte as contas de matemática rapidamente para chutar a bola direto para o gol e marcar pontos.</p>
+        </section>
 
-body {
-    position: relative;
-    font-family: 'Verdana', sans-serif;
-    background: linear-gradient(160deg, var(--bg1), var(--bg2) 45%, var(--bg3));
-    background-size: 220% 220%;
-    animation: bgShift 16s ease-in-out infinite;
-    color: var(--ink-light);
-    overflow-x: hidden;
-    padding-bottom: 100px; /* Espaço para o rodapé fixo */
-}
+        <section class="card card-2">
+            <h3>👥 2. Modos de Jogo</h3>
+            <p>Jogue solo no modo <strong>1 Jogador</strong> para quebrar recordes ou desafie um amigo no modo <strong>2 Jogadores</strong>!</p>
+        </section>
 
-@keyframes bgShift {
-    0%, 100% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-}
+        <section class="card card-3">
+            <h3>➕ 3. Operações</h3>
+            <p>Escolha o seu treino: <strong>Soma/Subtração</strong> para esquentar, <strong>Multiplicação</strong> para dominar ou <strong>Misto</strong> para craques!</p>
+        </section>
 
-/* =========================================================
-   FUNDO ANIMADO — luzes de estádio, partículas e grade
-   ========================================================= */
-.bg-fx {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
+        <section class="card card-4">
+            <h3>🚦 4. Nível de Dificuldade</h3>
+            <p>Defina o desafio do jogo entre <strong>Fácil, Normal, Difícil ou Expert</strong>. Quanto maior a dificuldade, mais desafiadoras as contas!</p>
+        </section>
 
-.beam {
-    position: absolute;
-    top: -20%;
-    width: 55vmax;
-    height: 140vmax;
-    background: conic-gradient(from 0deg, transparent 0deg, rgba(0, 245, 212, 0.14) 8deg, transparent 20deg);
-    transform-origin: top center;
-    animation: beamSweep 14s linear infinite;
-}
-.beam1 { left: -10%; }
-.beam2 {
-    right: -10%;
-    background: conic-gradient(from 0deg, transparent 0deg, rgba(255, 46, 154, 0.13) 8deg, transparent 20deg);
-    animation: beamSweep 18s linear infinite reverse;
-}
+        <section class="card card-5">
+            <h3>⏱️ 5. Tempo do Partida</h3>
+            <p>Ajuste o slider de <strong>Rodadas</strong> na tela inicial para definir a duração da partida antes de dar o pontapé inicial!</p>
+        </section>
 
-@keyframes beamSweep {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+        <section class="card card-6">
+            <h3>⌨️ 6. Atalhos Rápidos</h3>
+            <p>Dica de craque! Use as teclas numéricas <strong>1, 2 e 3</strong> do teclado para responder super rápido e não perder tempo!</p>
+        </section>
 
-.grid-fx {
-    position: absolute;
-    inset: -50%;
-    background-image:
-        linear-gradient(rgba(0, 245, 212, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 245, 212, 0.06) 1px, transparent 1px);
-    background-size: 48px 48px;
-    animation: gridDrift 22s linear infinite;
-    opacity: 0.5;
-}
+        <section class="card card-7">
+            <h3>🔥 7. Sistema de Combos</h3>
+            <p>Acerte várias respostas seguidas sem errar para acumular <strong>Combo Máximo</strong> e disparar sua pontuação nas alturas!</p>
+        </section>
 
-@keyframes gridDrift {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(48px, 48px); }
-}
+        <section class="card card-8">
+            <h3>🎯 8. Chute Certeiro</h3>
+            <p>Cada cálculo correto é um gol marcado! Responda o mais rápido possível para garantir a vitória da sua equipe.</p>
+        </section>
 
-.particle {
-    position: absolute;
-    bottom: -5%;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--cyan);
-    box-shadow: 0 0 10px 2px rgba(0, 245, 212, 0.8);
-    animation: particleRise linear infinite;
-    opacity: 0;
-}
+        <section class="card card-9">
+            <h3>❌ 9. Passe Errado</h3>
+            <p>Errou a conta? A defesa adversária intercepta a bola, você perde o combo atual e perde a chance de pontuar na rodada.</p>
+        </section>
 
-.p1 { left: 4%;  width: 5px; height: 5px; background: var(--cyan);    animation-duration: 12s; animation-delay: 0s;  }
-.p2 { left: 12%; width: 8px; height: 8px; background: var(--gold);    animation-duration: 16s; animation-delay: 2s;  box-shadow: 0 0 10px 2px rgba(255,209,102,0.8); }
-.p3 { left: 20%; width: 4px; height: 4px; background: var(--magenta); animation-duration: 10s; animation-delay: 1s;  box-shadow: 0 0 10px 2px rgba(255,46,154,0.8); }
-.p4 { left: 30%; width: 6px; height: 6px; background: var(--cyan);    animation-duration: 14s; animation-delay: 4s;  }
-.p5 { left: 40%; width: 7px; height: 7px; background: var(--gold);    animation-duration: 18s; animation-delay: 0.5s; box-shadow: 0 0 10px 2px rgba(255,209,102,0.8); }
-.p6 { left: 50%; width: 5px; height: 5px; background: var(--magenta); animation-duration: 11s; animation-delay: 3s;  box-shadow: 0 0 10px 2px rgba(255,46,154,0.8); }
-.p7 { left: 58%; width: 4px; height: 4px; background: var(--cyan);    animation-duration: 13s; animation-delay: 2.5s; }
-.p8 { left: 66%; width: 8px; height: 8px; background: var(--gold);    animation-duration: 17s; animation-delay: 1.5s; box-shadow: 0 0 10px 2px rgba(255,209,102,0.8); }
-.p9 { left: 74%; width: 5px; height: 5px; background: var(--magenta); animation-duration: 12s; animation-delay: 5s;  box-shadow: 0 0 10px 2px rgba(255,46,154,0.8); }
-.p10 { left: 82%; width: 6px; height: 6px; background: var(--cyan);   animation-duration: 15s; animation-delay: 0.8s; }
-.p11 { left: 90%; width: 4px; height: 4px; background: var(--gold);   animation-duration: 19s; animation-delay: 3.5s; box-shadow: 0 0 10px 2px rgba(255,209,102,0.8); }
-.p12 { left: 96%; width: 7px; height: 7px; background: var(--magenta);animation-duration: 14s; animation-delay: 2.2s; box-shadow: 0 0 10px 2px rgba(255,46,154,0.8); }
+        <section class="card card-10">
+            <h3>🏆 10. Recorde Pessoal</h3>
+            <p>Acompanhe seu progresso no topo da tela! Supere seu recorde a cada partida e mostre quem é o verdadeiro camisa 10.</p>
+        </section>
 
-@keyframes particleRise {
-    0%   { transform: translateY(0) scale(0.6); opacity: 0; }
-    10%  { opacity: 0.9; }
-    90%  { opacity: 0.5; }
-    100% { transform: translateY(-115vh) scale(1.1); opacity: 0; }
-}
+        <section class="card card-11">
+            <h3>🤜🤛 11. Duelo x2</h3>
+            <p>No modo 2 Jogadores, quem responder certo e mais rápido garante o gol da rodada. Agilidade mental é a chave!</p>
+        </section>
 
-header, .container-principal, footer { position: relative; z-index: 1; }
+        <section class="card card-12">
+            <h3>⚙️ 12. Personalização</h3>
+            <p>Acesse o menu de <strong>Configurações</strong> na tela inicial para ajustar efeitos sonoros, áudio e preferências de partida.</p>
+        </section>
 
-/* =========================================================
-   HEADER
-   ========================================================= */
-header {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #00acac, #004b4b, #00acac);
-    background-size: 220% 220%;
-    animation: headerShift 9s ease-in-out infinite;
-    color: var(--ink-light);
-    text-align: center;
-    padding: 25px 15px 20px 140px;
-    border-bottom: 3px solid var(--cyan);
-    box-shadow: 0 4px 22px rgba(0, 245, 212, 0.15);
-}
+        <section class="card card-13">
+            <h3>🏅 13. Apito Final</h3>
+            <p>Ao término de todas as rodadas, confira o placar final, veja suas estatísticas de acerto e comemore o título!</p>
+        </section>
 
-@keyframes headerShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
+        <section class="card card-14">
+            <h3>⚡ 14. Fair Play</h3>
+            <p>Sem trapaças! Mantenha o foco, treine o raciocínio rápido e divirta-se evoluindo em matemática enquanto joga!</p>
+        </section>
+    </main>
 
-header::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%;
-    height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(0, 245, 212, 0.28), rgba(255, 46, 154, 0.18), transparent);
-    animation: sweepPass 4.5s linear infinite;
-    pointer-events: none;
-}
+    <footer>
+        <p>&copy; 2026 MATH FC - Todos os direitos reservados.</p>
+    </footer>
 
-@keyframes sweepPass {
-    0%   { transform: translateX(-160%); }
-    100% { transform: translateX(340%); }
-}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var container = document.querySelector('.cards-container');
+            if (!container) return;
+            var cards = container.querySelectorAll('.card');
 
-header h1 {
-    position: relative;
-    z-index: 1;
-    font-size: 65px;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
-    color: #fff;
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
-    animation: titlePulse 3.5s ease-in-out infinite, titlePop 0.8s cubic-bezier(.34,1.56,.64,1) both;
-}
+            function closeActive() {
+                var active = container.querySelector('.card.card-active');
+                if (active) {
+                    active.classList.remove('card-active');
+                    active.setAttribute('aria-pressed', 'false');
+                }
+                container.classList.remove('has-active');
+            }
 
-@keyframes titlePop {
-    from { opacity: 0; transform: scale(0.7) translateY(-16px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
-}
+            function toggleCard(card) {
+                var wasActive = card.classList.contains('card-active');
+                closeActive();
+                if (!wasActive) {
+                    card.classList.add('card-active');
+                    card.setAttribute('aria-pressed', 'true');
+                    container.classList.add('has-active');
+                }
+            }
 
-@keyframes titlePulse {
-    0%, 100% { text-shadow: 0 0 10px rgba(0, 245, 212, 0.35), 0 0 24px rgba(255, 46, 154, 0.15); }
-    50% { text-shadow: 0 0 22px rgba(0, 245, 212, 0.7), 0 0 40px rgba(255, 46, 154, 0.4); }
-}
+            cards.forEach(function (card) {
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-pressed', 'false');
 
-header h1:hover {
-    transform: scale(1.03);
-    text-shadow: 0 0 20px var(--cyan), 0 0 40px var(--magenta);
-}
+                card.addEventListener('click', function () {
+                    toggleCard(card);
+                });
+                card.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleCard(card);
+                    }
+                });
+            });
 
-header p {
-    position: relative;
-    z-index: 1;
-    font-size: 18px;
-    margin-bottom: 20px;
-    font-weight: 300;
-    color: #cfe9ff;
-    animation: fadeIn 1s ease 0.3s both;
-}
+            document.addEventListener('click', function (e) {
+                if (!container.contains(e.target)) closeActive();
+            });
 
-.logo {
-    position: absolute;
-    left: 30px;
-    top: 25px;
-    width: 130px;
-    height: auto;
-    z-index: 1;
-    animation: logoFloat 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.45));
-    transition: transform 0.3s ease;
-}
-
-@keyframes logoFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(-2deg); }
-}
-
-.logo:hover {
-    transform: scale(1.12) rotate(-4deg);
-    animation-play-state: paused;
-}
-
-/* Escudo MATH FC — mesmo lugar da logo, espelhado no lado direito */
-.logo-mathfc {
-    position: absolute;
-    right: 30px;
-    top: 25px;
-    width: 130px;
-    height: auto;
-    z-index: 1;
-    animation: logoFloatRight 4s ease-in-out infinite;
-    filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.45));
-    transition: transform 0.3s ease;
-}
-
-@keyframes logoFloatRight {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-6px) rotate(2deg); }
-}
-
-.logo-mathfc:hover {
-    transform: scale(1.12) rotate(4deg);
-    animation-play-state: paused;
-}
-
-/* Navegação */
-nav {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-}
-
-nav a {
-    position: relative;
-    text-decoration: none;
-    color: var(--ink-light);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    background: var(--cyan);
-    transition: width 0.25s ease, left 0.25s ease;
-}
-
-nav a:hover::after {
-    width: 60%;
-    left: 20%;
-}
-
-nav a:hover, nav a.active {
-    background-color: rgba(0, 245, 212, 0.16);
-    color: #ffffff;
-    box-shadow: 0 0 12px rgba(0, 245, 212, 0.55);
-    transform: translateY(-2px);
-}
-
-nav a.active {
-    animation: activeGlow 2.2s ease-in-out infinite;
-}
-
-@keyframes activeGlow {
-    0%, 100% { box-shadow: 0 0 8px rgba(0, 245, 212, 0.45); }
-    50% { box-shadow: 0 0 18px rgba(0, 245, 212, 0.95); }
-}
-
-/* =========================================================
-   Conteúdo Principal (Hero e Cards)
-   ========================================================= */
-.container-principal {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    background: var(--glass);
-    backdrop-filter: blur(8px);
-    border: 2px solid var(--glass-border);
-    padding: 40px;
-    border-radius: 18px;
-    margin-bottom: 40px;
-    animation: fadeIn 1s ease-in-out, heroGlow 4s ease-in-out 1s infinite;
-}
-
-@keyframes heroGlow {
-    0%, 100% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 245, 212, 0.25); }
-    50% { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 46, 154, 0.35); }
-}
-
-.hero h2 {
-    font-size: 36px;
-    color: #fff;
-    text-shadow: 0 0 16px rgba(0, 245, 212, 0.4);
-    margin-bottom: 15px;
-    animation: fadeIn 0.9s ease 0.2s both;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #cfe4f0;
-    margin-bottom: 25px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    animation: fadeIn 0.9s ease 0.35s both;
-}
-
-.btn-jogar {
-    display: inline-block;
-    background: linear-gradient(90deg, var(--magenta), var(--cyan));
-    background-size: 200% 100%;
-    color: #05131d;
-    padding: 13px 34px;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    animation: fadeIn 0.9s ease 0.5s both, btnPulse 2.4s ease-in-out 1.2s infinite, btnGradient 5s ease infinite;
-}
-
-@keyframes btnGradient {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes btnPulse {
-    0%, 100% { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 0 rgba(0, 245, 212, 0.5); }
-    50% { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), 0 0 0 12px rgba(0, 245, 212, 0); }
-}
-
-.btn-jogar:hover {
-    transform: scale(1.08);
-    letter-spacing: 0.5px;
-}
-
-/* =========================================================
-   CARDS — animadérrimos
-   ========================================================= */
-.cards-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    position: relative;
-    background: rgba(44, 15, 82, 0.82);
-    backdrop-filter: none;
-    padding: 34px 18px;
-    border-radius: 18px;
-    text-align: center;
-    overflow: visible;
-    border: 1px solid rgba(0, 245, 212, 0.2);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
-}
-
-.card-cyan .card-badge span    { box-shadow: 0 0 16px rgba(0, 245, 212, 0.7); background: var(--cyan); }
-.card-magenta .card-badge span { box-shadow: 0 0 16px rgba(255, 46, 154, 0.7); background: var(--magenta); }
-.card-gold .card-badge span    { box-shadow: 0 0 16px rgba(255, 209, 102, 0.7); background: var(--gold); }
-
-.card-badge {
-    display: inline-flex;
-    margin-bottom: 16px;
-}
-
-.card-badge span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 15px;
-    color: #05131d;
-}
-
-/* título com letras animadas */
-.card h3 {
-    color: #fff;
-    margin-bottom: 12px;
-    font-size: clamp(17px, 2.2vw, 23px);
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    display: flex;
-    justify-content: center;
-}
-
-.card h3 .letter {
-    display: inline-block;
-}
-
-.card-cyan h3 .letter    { text-shadow: 0 0 10px rgba(0, 245, 212, 0.6); }
-.card-magenta h3 .letter { text-shadow: 0 0 10px rgba(255, 46, 154, 0.6); }
-.card-gold h3 .letter    { text-shadow: 0 0 10px rgba(255, 209, 102, 0.6); }
-
-.card p {
-    color: #d7e6f0;
-    font-size: 15px;
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px; height: 1px;
-    padding: 0; margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* =========================================================
-   RODAPÉ
-   ========================================================= */
-footer {
-    position: fixed;
-    overflow: hidden;
-    background-image: linear-gradient(135deg, #00acac, #004b4b, #00acac);
-    background-size: 200% 200%;
-    animation: footerShift 8s ease-in-out infinite;
-    color: var(--ink-light);
-    text-align: center;
-    padding: 15px;
-    border-top: 3px solid var(--cyan);
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 -4px 18px rgba(0, 245, 212, 0.15);
-}
-
-footer::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%;
-    height: 100%;
-    background: linear-gradient(100deg, transparent, rgba(255, 209, 102, 0.22), rgba(0, 245, 212, 0.22), transparent);
-    animation: sweepPass 5.5s linear infinite;
-    pointer-events: none;
-}
-
-@keyframes footerShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-/* =========================================================
-   Animações gerais e responsividade
-   ========================================================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
-
-@media (max-width: 768px) {
-    .logo {
-        left: 15px;
-        top: 15px;
-        width: 80px;
-    }
-    .logo-mathfc {
-        right: 15px;
-        top: 15px;
-        width: 80px;
-    }
-    header {
-        padding-left: 110px;
-        padding-right: 15px;
-    }
-    header h1 {
-        font-size: 40px;
-    }
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    .hero h2 {
-        font-size: 28px;
-    }
-    .beam { display: none; }
-}
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeActive();
+            });
+        });
+    </script>
+</body>
+</html>
